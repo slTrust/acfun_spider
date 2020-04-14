@@ -78,7 +78,7 @@ async function getStringArticle(id){
     var minutes = parseInt(orginCreateAtStr);
     orginCreateAtStr =  Date.now().valueOf() - minutes*60*1000;
   }
-  const orginCreateAt = moment(orginCreateAtStr).valueOf(); 
+  const orginCreateAt = moment(new Date(orginCreateAtStr)).valueOf(); 
   const tags = [];
   const articleCategoryAndTagNames = $('.article-parent').children('a')
   const bottomTags = $('#bd_tag.tag > span');
