@@ -26,7 +26,7 @@ const Debug = {
     host: '',
   },
 };
-if (process.MODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   module.exports = Production;
 } else {
   module.exports = Debug;
@@ -52,8 +52,20 @@ node scripts/spider.js generate_ids 0 41
 node scripts/spider.js start_getting_articles
 ```
 
-> pm2 则运行
+> pm2 运行爬虫脚本
 
 ```
 NODE_ARGV_2=start_getting_articles pm2 start scripts/spider.js
+```
+
+> 对外开放接口服务
+
+```
+NODE_ENV=production pm2 start bin/www
+```
+
+**production的 log目录可能没有需要你手动创建，同时附加读写权限**
+
+```
+sudo chmod 777 -R 你的目录
 ```
