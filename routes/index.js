@@ -36,7 +36,6 @@ router.get('/content', (req, res) => {
     const articles = await Article.model.find(match)
       .sort({ _id: 1 })
       .limit(Number(pageSize) || 10);
-    console.log(articles)
     const contentList = [];
 
     for (let a of articles) {

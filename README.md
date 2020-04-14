@@ -1,13 +1,35 @@
-根目录自行创建
+根目录自行创建 setting.js 形如
 
 ```
-module.exports = {
-  mongo:{
-    uri: 'mongodb://IP:端口/数据库',
+const Production = {
+  logger: {
+    path: '',
   },
-  logger:{
-    path:'日志目录'
-  }
+  mongo: {
+    uri: '',
+  },
+  redis: {
+    port: 1111,
+    host: '',
+  },
+};
+
+const Debug = {
+  logger: {
+    path: '',
+  },
+  mongo: {
+    uri: '',
+  },
+  redis: {
+    port: 1111,
+    host: '',
+  },
+};
+if (process.MODE_ENV === 'production') {
+  module.exports = Production;
+} else {
+  module.exports = Debug;
 }
 ```
 
@@ -16,6 +38,7 @@ module.exports = {
 **项目根目录运行**
 **项目根目录运行**
 **项目根目录运行**
+
 > 生成id
 
 ```
