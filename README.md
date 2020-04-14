@@ -1,4 +1,4 @@
-更目录自行创建
+根目录自行创建
 
 ```
 module.exports = {
@@ -12,6 +12,18 @@ module.exports = {
 ```
 
 ### 爬虫服务运行
+
+**项目根目录运行**
+**项目根目录运行**
+**项目根目录运行**
+> 生成id
+
+```
+node scripts/spider.js generate_ids 0 41
+# 生成 0 ～ 410000的 id
+```
+
+> 开始爬取
 
 ```
 node scripts/spider.js start_getting_articles
