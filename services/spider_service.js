@@ -67,12 +67,7 @@ async function getStringArticle(id){
   const articleContent = $('.article-content');
   const doms = articleContent.children();
 
-  const title = $('.art-title').children('.art-title-head').children('.caption').text();
-  const titleTags = jieba.extract(title, 5);
-  for (const t of titleTags) {
-    tags.push(new Tag('ARTICLE_TAG_TITLE', t.word, t.weight));
-  }
-  // console.log(titleTags);
+ 
   let orginCreateAtStr = $('.up-time').text();
   if(orginCreateAtStr.indexOf('小时')!=-1){
     var hour = parseInt(orginCreateAtStr);
@@ -86,6 +81,12 @@ async function getStringArticle(id){
   const articleCategoryAndTagNames = $('.article-parent').children('a')
   const bottomTags = $('#bd_tag.tag > span');
 
+  const title = $('.art-title').children('.art-title-head').children('.caption').text();
+  const titleTags = jieba.extract(title, 5);
+  for (const t of titleTags) {
+    tags.push(new Tag('ARTICLE_TAG_TITLE', t.word, t.weight));
+  }
+  // console.log(titleTags);
   //面包屑a标签  文章 > 漫画文学 > 漫画
   tags.push(new Tag('ARTICLE_CATEGORY',articleCategoryAndTagNames.eq(1).text(),1));
   tags.push(new Tag('ARTICLE_TAG_NAME',articleCategoryAndTagNames.eq(2).text(),1));
