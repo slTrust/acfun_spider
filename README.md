@@ -42,14 +42,18 @@ if (process.env.NODE_ENV === 'production') {
 > 生成id
 
 ```
+# redis 里 清数据 flushall
+
 node scripts/spider.js generate_ids 0 41
 # 生成 0 ～ 410000的 id
+# redis 里 scard acfun_id_set 验证 生成的是否是 4100000 条id
 ```
 
 > 开始爬取
 
 ```
 node scripts/spider.js start_getting_articles
+# 验证没问题，服务器上 使用 pm2 开始爬
 ```
 
 > pm2 运行爬虫脚本

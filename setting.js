@@ -1,6 +1,6 @@
 const Production = {
   logger: {
-    path: '/var/log/acfun_spider',
+    path: './prod_logs/',
   },
   mongo: {
     uri: 'mongodb://localhost:27017/acfun',
