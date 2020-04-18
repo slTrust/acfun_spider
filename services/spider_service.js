@@ -10,7 +10,7 @@ class Tag {
   constructor(name, value, score){
     this.name = name; // 标签 如 漫画 
     this.value = value; // 对应的值
-    this.scroe = score;
+    this.score = score;
   }
 }
 
@@ -69,6 +69,9 @@ async function getStringArticle(id){
 
   const title = $('.art-title').children('.art-title-head').children('.caption').text();
   const titleTags = jieba.extract(title, 5);
+  for (const t of titleTags) {
+    tags.push(new Tag('ARTICLE_TAG_TITLE', t.word, t.weight));
+  }
   // console.log(titleTags);
   let orginCreateAtStr = $('.up-time').text();
   if(orginCreateAtStr.indexOf('小时')!=-1){

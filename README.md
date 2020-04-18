@@ -69,3 +69,23 @@ NODE_ENV=production pm2 start bin/www
 ```
 sudo chmod 777 -R 你的目录
 ```
+
+### 
+
+
+#### 之前添加了 nodejieba 分词
+
+- **如果你用最新版代码从头爬取的数据不用搞这个**
+- **如果你用最新版代码从头爬取的数据不用搞这个**
+- **如果你用最新版代码从头爬取的数据不用搞这个**
+- 但是数据tags里没录入 jieba 分词后的 title 
+- 单独写了一个洗数据的脚本 script/fix_data.js
+
+
+```
+// 修复 tags 里没有 title分词后的 tag
+node scripts/tag_score_adjustment.js recalculate_tag_scores
+
+// 修复 tags的 字段名错误 从 scroe => score
+node scripts/fix_data.js fix_tags_scroe_to_score
+```
